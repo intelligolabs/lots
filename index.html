@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="LOTS of Fashion! Multi-Conditioning for Image Generation via Sketch-Text Pairing.">
+  <meta name="keywords" content="Sketch, Fashion, Diffusion Model, Image Generation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LOTS of Fashion! Multi-Conditioning for Image Generation via Sketch-Text Pairing</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" target="_blank" href="https://intelligolabs.net/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" target="_blank" href="https://intelligolabs.github.io/L-VQAScore/">
+            L-VQAScore
+          </a>
+          <a class="navbar-item" target="_blank" href="https://davidetalon.github.io/fashionact-page">
+            Seeing the Abstract
+          </a>
+          <a class="navbar-item" target="_blank" href="https://aida.intelligolabs.net/">
+            AIDA Project
+          </a>
+          <a class="navbar-item" target="_blank" href="https://github.com/intelligolabs">
+            More from IntelligoLabs
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body" style="padding: 0;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">LOTS of Fashion! Multi-Conditioning for Image Generation via Sketch-Text Pairing</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a target="_blank" href="https://federicogirella.github.io">Federico Girella</a><sup><small>1</small></sup>,</span>
+            <span class="author-block">
+              <a target="_blank" href="https://davidetalon.github.io/">Davide Talon</a><sup><small>2</small></sup>,</span>
+            <span class="author-block">
+              <a target="_blank" href="https://www.linkedin.com/in/ziyue-liu-karin/">Ziyue Liu</a><sup><small>1,3</small></sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank" href="https://scholar.google.com/citations?user=7AvfV7gAAAAJ&hl=en">Zanxi Ruan</a><sup><small>1</small></sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank" href="https://www.yimingwang.it/">Yiming Wang</a><sup><small>2</small></sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank" href="https://www.dimi.univr.it/?ent=persona&id=218">Marco Cristani</a><sup><small>1,4</small></sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup><small>1</small></sup>University of Verona,</span>
+            <span class="author-block"><sup><small>2</small></sup>Fondazione Bruno Kessler</span>
+            <span class="author-block"><sup><small>3</small></sup>Polytechnic University of Turin</span>
+            <span class="author-block"><sup><small>4</small></sup>University of Reykjavik</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              
+              <!-- Arxiv -->
+              <span class="link-block">
+                <a target="_blank" href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv: Coming soon</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a target="_blank" href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code: Coming soon</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a target="_blank" href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data: Coming soon</span>
+                </a>
+              </span>
+              <span class="tag iccv is-success is-primary is-rounded is-large">
+                <span>
+                ORAL at ICCV 2025 🎉
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/LOTS-demo.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf"><b>LOTS</b></span>: Compose your outfit through text and sketch pairing.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Our Contributions</h2>
+        <div class="box has-text-centered" style="box-shadow: none;">
+          <article class="media" style="text-align: center;">
+            <div class="columns is-centered has-text-centered">
+              <!-- Left column. -->
+              <div class="column">
+                <div class="content">
+                  <h2 class="title is-5">Localized sketch-text image generation</h2>
+                </div>
+              </div>
+              <!--/ Left column. -->
+
+              <!--Right column. -->
+              <div class="column is-three-fifths">
+                <div class="columns is-centered">
+                  <div class="column content has-text-justified">
+                    <p>
+                      Advancing state-of-the-art conditioning with <b>multiple localized sketch-text pairs</b> and a global description.
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="media" style="text-align: center;">
+            <div class="columns is-centered has-text-centered">
+              <!-- Left column. -->
+              <div class="column">
+                <div class="content">
+                  <h2 class="title is-5"><span class="dnerf">LOcalized Text and Sketch</span> adapter</h2>
+                </div>
+              </div>
+              <!--/ Left column. -->
+
+              <!--Right column. -->
+              <div class="column is-three-fifths">
+                <div class="columns is-centered">
+                  <div class="column content has-text-justified">
+                    <p>
+                      A novel <b>diffusion adapter mitigating attribute confusion</b> via modularized, paired attention-based processing.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="media" style="text-align: center;">
+            <div class="columns is-centered has-text-centered">
+              <!-- Left column. -->
+              <div class="column">
+                <div class="content">
+                  <h2 class="title is-5">The <span class="dnerf">Sketchy</span> dataset</h2>
+                </div>
+              </div>
+              <!--/ Left column. -->
+
+              <!--Right column. -->
+              <div class="column is-three-fifths">
+                <div class="columns is-centered">
+                  <div class="column content has-text-justified">
+                    <p>
+                      A <b>new fashion dataset</b> to facilitate model training and evaluation for the localized sketch-text image generation problem.
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="media" style="text-align: center;">
+            <div class="columns is-centered has-text-centered">
+              <!-- Left column. -->
+              <div class="column">
+                <div class="content">
+                  <h2 class="title is-5">State-of-the-Art performance</h2>
+                </div>
+              </div>
+              <!--/ Left column. -->
+
+              <!--Right column. -->
+              <div class="column is-three-fifths">
+                <div class="columns is-centered">
+                  <div class="column content has-text-justified">
+                    <p>
+                      <span class="dnerf"><b>LOTS</b></span> achieves state-of-the-art performance in <b>image quality, sketch-text conditioning and attribute localization</b>.
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  <hr/>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+          Fashion design is a complex creative process that blends <b>visual and textual expressions</b>. 
+          Designers convey ideas through sketches, which define spatial structure and design elements, and textual descriptions, capturing material, texture, and stylistic details.
+          </p>
+          <p>
+          In this paper, we present <span class="dnerf">LOcalized Text and Sketch (<b>LOTS</b>)</span>, an approach for <b>compositional sketch-text based generation</b> of complete fashion outlooks. 
+          <span class="dnerf"><b>LOTS</b></span> leverages a global description with <b>paired localized sketch + text information</b> for conditioning and introduces a novel <b>multistep-based merging strategy</b> for diffusion adaptation. 
+          First, a <b>Modularized Pair-Centric representation</b> encodes sketches and text into a shared latent space while preserving independent localized features; 
+          then, a <b>Diffusion Pair Guidance phase</b> integrates both local and global conditioning via attention-based guidance within the diffusion model's multi-step denoising process. 
+          </p>
+          <p>
+          To validate our method, we build on Fashionpedia to release <span class="dnerf">Sketchy</span>, the <b>first fashion dataset where multiple sketch-text pairs</b> are provided per image. 
+          Quantitative results show <span class="dnerf"><b>LOTS</b></span> achieves state-of-the-art image generation performance on both global and localized metrics, while qualitative examples and a human evaluation study highlight its unprecedented level of design customization.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+    <hr/>
+    <!-- Background -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Background</h2>
+        <div class="content has-text-justified">
+          <p>
+          In fashion design, sketches and natural language descriptions associated with the same garment convey <b>complementary information</b> for depicting the final design. 
+          As a complete outlook design is composed of several clothing garments, <b>multiple descriptions</b> are often collected together to outline an outfit. 
+          Each <b>sketch-text pair</b> specifies a localized part of design, in terms of silhouette shapes, materials, and textual details, allowing <b>fine-grained localized control</b> over the generation. 
+          </p>
+          <p>
+          We frame this problem as a <b>conditional image generation task</b>, where the conditioning consists of a set of localized sketch-text pairs. 
+          <span class="dnerf"><b>LOTS</b></span> is designed to enable fashion image generation with an <b>unprecedented level of localized control</b>.
+          </p>
+          <img class="image"
+          src= "./static/images/background.png"
+          alt="Evolution of the image generation task"/>
+          <b>Figure 1:</b> Fundamental difference between previous methods and our approach. 
+          <span class="dnerf"><b>LOTS</b></span> represents the natural evolution of fashion design methodologies, progressing from global text and sketches (IP-Adapter) to localized sketches with global text (Multi-T2I). 
+          Our approach leverages a global description (omitted here for brevity) alongside a <b>set of localized sketch-text pairs</b> (the coloured boxes), effectively defining both the layout and appearance of individual garment items.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- / Background -->
+    <hr/>
+    <div class="container is-max-desktop is-centered">
+      <!-- Method -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-is-full">
+          <h2 class="title is-3">Method</h2>
+          <p style="text-align: center">
+            We propose <span class="dnerf"><b>LOTS</b></span>, a novel approach leveraging multiple localized sketch-text pairs for image conditioning. 
+          </p>
+          <img
+            class="image is-fullwidth"
+            src="./static/images/method.png"
+            alt="Teaser"
+          />
+        </div>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <!-- Left column. -->
+        <div class="column">
+          <div class="content">
+            <h2 class="title is-5">1. Pair-Centric Representation</h2>
+            <div class="has-text-justified">
+              <p>
+              The <b>Modularized Pair-Centric Representation</b> module independently encodes sketches and text into a shared latent space, preserving localized semantics and minimizing cross-pair information leakage. 
+              The <b>Pair-former</b> then integrates sketch and text features within each pair, enabling spatially grounded alignment and accurate modeling of fine-grained, instance-specific attributes through sketch-informed structural guidance.
+              </p>
+            </div>
+
+          </div>
+        </div>
+        <!--/ Left column. -->
+
+        <!--Right column. -->
+        <div class="column">
+          <h2 class="title is-5">2. Deferred Diffusion Pair Guidance</h2>
+          <div class="columns is-centered">
+            <div class="column content has-text-justified">
+              <p>
+                The <b>localized representations</b> are fed as conditioning inputs to a pre-trained diffusion model, alongside a global textual representation specifying general appearance properties (style, background). 
+                Our approach <b>defers</b> this operation to the diffusion process itself, breaking down the task across multiple denoising steps via a cross-attention strategy.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <!-- / Method -->
+     <hr/>
+
+    <div class="container is-max-desktop is-centered">
+      <!-- Dataset. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3 has-text-centered">Sketchy Dataset</h2>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-centered" style="align-items: center;">
+        <!-- Left column. -->
+        <div class="column">
+          <div class="content">
+            <div class="has-text-justified">
+              <img
+                class="image"
+                src="./static/images/dataset_example.png"
+                alt="Teaser"
+              />
+            </div>
+
+          </div>
+        </div>
+        <!--/ Left column. -->
+
+        <!-- Right column. -->
+        <div class="column">
+          <div class="is-centered">
+            <div class="column content has-text-justified">
+              <p>
+                Starting from whole-body item (light colors) and garment parts (dark shades) annotations, we build a <b>hierarchical structure</b> by pairing the garment-part annotations to their related whole-body garment.
+                We then use this structure to generate <b>garment-level sketches and natural language descriptions</b> with off-the-shelf models.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!--/ Right column. -->
+    </div>
+
+    <hr/>
+
+    <div class="container is-max-desktop is-centered">
+      <!-- Comparisons. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
+          <img
+            class="image is-fullwidth"
+            src="./static/images/result.jpeg"
+            alt="Teaser"
+          />
+        </div>
+      </div>
+      <!--/ Comparisons. -->
+    </div>
+  </div>
+</section>
+<hr/>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="container is-max-desktop is-centered">
+      <!-- Video. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3 has-text-centered">Promo Video</h2>
+          <video id="teaser" autoplay muted loop playsinline height="100%">
+            <source src="./static/videos/LOTS-promovideo.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Video. -->
+    </div>
+  </div>
+</section>
+
+<hr/>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Related Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="content is-four-fifths">
+        <article class="media" style="text-align: center;">
+          <div class="media-left">
+            <a href="https://intelligolabs.github.io/L-VQAScore/">
+              <img class="image is-48x48" src="./static/images/lens.svg" alt="L-VQAScore logo"/>
+            </a>
+          </div>
+          <div class="media-content">
+            <p class="title is-5">
+              <a href="https://intelligolabs.github.io/L-VQAScore/" class="title-link">L-VQAScore - ICIAP25</a>
+            </p>
+            <p class="subtitle is-6">Evaluating Attribute Confusion in Fashion Text-to-Image Generation.</p>
+        </article>
+
+        <article class="media" style="text-align: center;">
+          <div class="media-left">
+            <a href="https://davidetalon.github.io/fashionact-page/">
+              <img class="image is-48x48" src="./static/images/fashion.svg" alt="Seeing the Abstract"/>
+            </a>
+          </div>
+          <div class="media-content">
+            <p class="title is-5">
+              <a href="https://davidetalon.github.io/fashionact-page/" class="title-link">Seeing the Abstract - CVPR25</a>
+            </p>
+            <p class="subtitle is-6">Translating the Abstract Language for Vision Language Models.</p>
+        </article>
+
+        <article class="media" style="text-align: center;">
+          <div class="media-left">
+            <a href="https://aida.intelligolabs.net/">
+              <img class="image is-48x48" src="./static/images/medical.svg" alt="AIDA logo"/>
+            </a>
+          </div>
+          <div class="media-content">
+            <p class="title is-5">
+              <a href="https://aida.intelligolabs.net/" class="title-link">AIDA Project</a>
+            </p>
+            <p class="subtitle is-6">AI-Driven Intelligent Diagnostics and Analytics in Healthcare.</p>
+        </article>
+      </div>
+    </div>
+    <!--/ Related Work. -->
+
+    <!-- Acknowledgements -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Acknowledgements</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            This study was supported by <b>LoCa AI</b>, funded by Fondazione CariVerona (Bando Ricerca e Sviluppo 2022/23),
+            <b>PNRR FAIR</b> - Future AI Research (PE00000013) and <b>Italiadomani</b> (PNRR, M4C2, Investimento 3.3), funded by NextGeneration EU.  
+            This study was also carried out within the PNRR research activities of the consortium <b>iNEST</b> (Interconnected North-Est Innovation Ecosystem) funded by the European Union Next-GenerationEU (Piano Nazionale di Ripresa e Resilienza (PNRR) – Missione 4 Componente 2, Investimento 1.5 – D.D. 1058 23/06/2022, ECS_00000043). This manuscript reflects only the Authors’ views and opinions. Neither the European Union nor the European Commission can be considered responsible for them.
+            We acknowledge the <b>CINECA</b> award under the ISCRA initiative, for the availability of high-performance computing resources and support.  
+            We acknowledge <b>EuroHPC</b> Joint Undertaking for awarding us access to MareNostrum5 as BSC, Spain. 
+            Finally, we acknowledge <b>HUMATICS, a SYS-DAT Group company</b>, for their valuable contribution to this research.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Concurrent Work. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{girella2025lots,
+  author    = {Girella, Federico and Talon, Davide and Lie, Ziyue and Ruan, Zanxi and Wang, Yiming and Cristani, Marco},
+  title     = {LOTS of Fashion! Multi-Conditioning for Image Generation via Sketch-Text Pairing},
+  journal   = {Proceedings of the International Conference on Computer Vision},
+  year      = {2025},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="">
+        <i class="ai ai-arxiv"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/federicogirella" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This website was built following the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> template.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
