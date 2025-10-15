@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools"]
+build-backedn = "setuptools.build_meta"
+
+[project]
+name = "lots"
+authors = [
+    {name = "Federico Girella", email = "federico.girella@univr.it"},
+]
+description = "Package for LOTS experiments"
+readme = "README.md"
+version = "1.0.0"
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src"]
