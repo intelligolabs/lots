@@ -36,6 +36,13 @@ We advise creating a Conda environment as follows
 * `pip install -r requirements.txt`
 * `pip install -e .`
 
+Unzip the pre-trained weights and config
+```
+cd ckpts
+unzip lots.zip
+cd ..
+```
+
 
 ## **Training** ##
 We provide the script to train LOTS on our Sketchy dataset in `scripts/lots/train_lots.py`.
