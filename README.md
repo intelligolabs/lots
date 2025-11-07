@@ -1,8 +1,7 @@
 # LOTS of Fashion! Multi-Conditioning for Image Generation via Sketch-Text Pairing #
 
-[![Code](https://img.shields.io/badge/Code-%23121011.svg?style=flat&logo=github&logoColor=white)](https://github.com/intelligolabs/lots)
 [![Project Page](https://img.shields.io/badge/Project_Page-121013?style=flat&logo=github&logoColor=white)](https://intelligolabs.github.io/lots)
-
+[![Model on HF](https://huggingface.co/datasets/huggingface/badges/resolve/main/model-on-hf-sm-dark.svg)](https://huggingface.co/federicogirella/lots)
 [![Dataset on HF](https://huggingface.co/datasets/huggingface/badges/resolve/main/dataset-on-hf-sm-dark.svg)](https://huggingface.co/datasets/federicogirella/sketchy)
 
 ![LOTS](static/LOTS.png)
