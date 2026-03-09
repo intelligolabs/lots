@@ -25,6 +25,25 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+  <style>
+  .custom-paper-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 40px 30px;
+    margin: 20px auto;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+  .featured-green {
+    border: 1px solid rgba(72, 199, 142, 0.3);
+    border-left: 8px solid #48c78e;
+    box-shadow: 0 15px 35px rgba(72, 199, 142, 0.1);
+  }
+  .standard-gray {
+    border-left: 8px solid #dbdbdb;
+    background: #fafafa;
+  }
+</style>
 </head>
 <head>
   <meta charset="utf-8">
@@ -98,6 +117,7 @@
 <section class="hero">
   <div class="hero-body" style="padding: 0;">
     <div class="container is-max-desktop">
+      <div class="custom-paper-card featured-green">
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">LOTS of Fashion! Multi-Conditioning for Image Generation via Sketch-Text Pairing</h1>
@@ -177,6 +197,7 @@
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   </div>
