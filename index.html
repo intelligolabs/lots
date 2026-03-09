@@ -26,22 +26,32 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
   <style>
+  <style>
   .custom-paper-card {
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.45); 
+    backdrop-filter: blur(16px); 
+    -webkit-backdrop-filter: blur(16px); 
     border-radius: 24px;
     padding: 40px 30px;
     margin: 20px auto;
-    border: 1px solid #f0f0f0;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+  }
+  .custom-paper-card:hover {
+    transform: translateY(-5px);
   }
   .featured-green {
-    border: 1px solid rgba(72, 199, 142, 0.3);
-    border-left: 8px solid #48c78e;
-    box-shadow: 0 15px 35px rgba(72, 199, 142, 0.1);
+    border: 1px solid rgba(72, 199, 142, 0.4);
+    border-left: 8px solid rgba(72, 199, 142, 0.85);
+    background: linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(230, 250, 240, 0.4) 100%);
+    box-shadow: 0 12px 40px rgba(72, 199, 142, 0.12);
   }
   .standard-gray {
-    border-left: 8px solid #dbdbdb;
-    background: #fafafa;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-left: 8px solid rgba(200, 200, 200, 0.5);
+    background: linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(248, 248, 248, 0.3) 100%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  }
+</style>
   }
 </style>
 </head>
@@ -120,7 +130,7 @@
       <div class="custom-paper-card featured-green">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">LOTS of Fashion! Multi-Conditioning for Image Generation via Sketch-Text Pairing</h1>
+          <h1 class="title is-2 publication-title">LOTS of Fashion! Multi-Conditioning for Image Generation via Sketch-Text Pairing</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a target="_blank" href="https://federicogirella.github.io">Federico Girella</a><sup><small>1</small></sup>,</span>
@@ -207,7 +217,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Multi-Level Conditioning by Pairing Localized Text and Sketch for Fashion Image Generation</h1>
+          <h1 class="title is-2 publication-title">Multi-Level Conditioning by Pairing Localized Text and Sketch for Fashion Image Generation</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a target="_blank" href="https://www.linkedin.com/in/ziyue-liu-karin/">Ziyue Liu</a><sup><small>1,2</small></sup>,</span>
